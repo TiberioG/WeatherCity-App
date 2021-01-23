@@ -15,7 +15,6 @@ const initialState = {
 
 //this must be imported in rootReducer
 export function currentWeatherReducer(state = initialState, action) {
-  //console.log(action);
   switch (action.type) {
     case CUR_WHT_REQ:
       return {...state, fetching: true, error: null};
@@ -42,7 +41,6 @@ export function* watcherCurrentWeatherSaga() {
 
 // this is responsible of calling API
 function getCurrentWeather(id, settings) {
-  console.log(id);
   let config = {
     method: 'get',
     url: API_CONFIG.url + 'weather?id=' + id + '&appid=' + API_CONFIG.key + '&units=' + settings.units,
@@ -60,7 +58,6 @@ function* workerSaga(action) {
     //in call you have (fn, ...args)
     const response = yield call(getCurrentWeather, action.payload, settings);
     const payload = response?.data;
-    console.log(response);
 
     // dispatch a success action to the store with the data from Axios
 

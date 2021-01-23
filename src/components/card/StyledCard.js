@@ -45,7 +45,7 @@ export const TemperatureText = styled.Text`
 `;
 
 export const CityText = styled.Text`
-  padding-top: 5%%;
+  padding-top: 5%;
   font-weight: bold;
   font-size: 25px;
 `;

@@ -10,22 +10,27 @@ import {
   TimeText,
 } from './StyledCard';
 
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {FormattedDate, FormattedTime} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
 import {useNavigation} from '@react-navigation/native';
 
 const Card = (props) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const currentWeather = useSelector((state) => state.currentWeather);
   const cardData = currentWeather[props.id]; //todo check for null
   const localDate = Date.now() + 1000 * cardData?.timezone; // beacuse API gives shift from UTC in seconds
   const settings = useSelector((state) => state.settings);
 
-  //console.log(currentWeather)
   return (
     <TouchableContainer
       onPress={() => {
+        //let's fetch data for the next page in advance
+        dispatch({
+          type: 'FORECAST_WHT_REQ',
+          payload: props.id,
+        });
         navigation.navigate('Details', props.id); //here I pass index as route.params
       }}>
       <Left>
@@ -49,7 +54,7 @@ const Card = (props) => {
 
       <Right>
         <TemperatureText>
-          {Math.round(currentWeather[props.id]?.main.temp) +
+          {Math.round(cardData?.main.temp) +
             getTempSymbol(settings.units)}
         </TemperatureText>
       </Right>

@@ -3,16 +3,30 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export const HeaderContainer = styled.View`
-  background-color: red;
-  padding-top: 10%;
+  background-color: transparent;
+  height: 11%;
+  width: ${wp('100%')};
+  padding-top: 13%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding-right: 5%;
-  padding-left: 5%;
-  padding-bottom: 2%;
-  z-index: 100; /* this must be higher than the top filter one!!*/
+  align-items: baseline;
+`;
+
+export const StyledIcon = styled(Icon).attrs((props) => ({
+  size: 30,
+  color: 'white',
+}))`
+  padding-left: 3%;
+  padding-right: 3%;
+`;
+
+export const TitleText = styled.Text`
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
 `;
