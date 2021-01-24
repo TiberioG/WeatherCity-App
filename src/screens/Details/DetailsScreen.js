@@ -1,6 +1,12 @@
 import React, {useEffect} from 'react';
 
-import {Text, Button, View, ScrollView} from 'react-native';
+import {
+  Text,
+  Button,
+  View,
+  ScrollView,
+  useWindowDimensions,
+} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {
   ConditionsText,
@@ -15,17 +21,11 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import CustomHeader from '../../components/header/CustomHeader';
 
-import Svg, {
-  Circle,
-  Ellipse,
-  Defs,
-  LinearGradient,
-  Stop,
-} from 'react-native-svg';
-
 import {FormattedDate} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
 import DailyCard from '../../components/dailyCard/DailyCard';
+import Background from '../../components/background/Background';
+import BackgroundCustom from "../../components/background/Background";
 
 const DetailsScreen = (props) => {
   const route = useRoute(); //using route params to pass to this page the city ID
@@ -55,6 +55,7 @@ const DetailsScreen = (props) => {
   ) : (
     <>
       <Container>
+        <BackgroundCustom id={pageData.weather[0].id} />
         <CustomHeader
           title={pageData.name}
           onPressLeft={() => props.navigation.goBack()}
@@ -77,16 +78,6 @@ const DetailsScreen = (props) => {
           </BigTemperatureText>
         </IconAndTemp>
         <ScrollContainer horizontal={true}>{renderedCards}</ScrollContainer>
-
-        <Svg height="150" width="300">
-          <Defs>
-            <LinearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-              <Stop offset="0" stopColor="#FFD080" stopOpacity="1" />
-              <Stop offset="1" stopColor="red" stopOpacity="1" />
-            </LinearGradient>
-          </Defs>
-          <Ellipse cx="150" cy="75" rx="85" ry="55" fill="url(#grad)" />
-        </Svg>
       </Container>
     </>
   );

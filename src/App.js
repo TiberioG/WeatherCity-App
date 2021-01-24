@@ -14,6 +14,7 @@ import {IntlProvider} from 'react-intl';
 //redux
 import store from './redux/store';
 import {Provider} from 'react-redux';
+import TabNavigation from "./navigation/TabNavigation";
 
 
 //todo add react native localize to select messages and locale config
@@ -24,7 +25,7 @@ const App = () => {
       <IntlProvider locale={'en'} messages={messages_en} >
       <SafeAreaProvider>
         <NavigationContainer>
-          <RootStackNav />
+          <RootStackNav/>
         </NavigationContainer>
       </SafeAreaProvider>
       </IntlProvider>

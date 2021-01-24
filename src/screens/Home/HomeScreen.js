@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {FormattedMessage} from 'react-intl';
 import Card from '../../components/card/Card';
+import BottomTabs from "../../components/bottomTabs/BottomTabs";
 
 const HomeScreen = () => {
   const navigation = useNavigation();

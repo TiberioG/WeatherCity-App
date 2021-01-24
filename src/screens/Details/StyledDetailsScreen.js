@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.View`
-  background-color: #2286db;
+  background-color: transparent;
   align-items: center;
   justify-content: flex-start;
   flex: 1;

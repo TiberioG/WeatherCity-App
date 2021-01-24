@@ -10,10 +10,13 @@ import {
   TimeText,
 } from './StyledCard';
 
+
 import {useSelector, useDispatch} from 'react-redux';
 import {FormattedDate, FormattedTime} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
 import {useNavigation} from '@react-navigation/native';
+
+import BackgroundCustom from "../background/Background";
 
 const Card = (props) => {
   const navigation = useNavigation();
@@ -33,6 +36,7 @@ const Card = (props) => {
         });
         navigation.navigate('Details', props.id); //here I pass index as route.params
       }}>
+      <BackgroundCustom style={{borderRadius: 25}} id={cardData?.weather[0].id}/>
       <Left>
         <CityText numberOfLines={2} ellipsizeMode="tail">
           {cardData?.name}
