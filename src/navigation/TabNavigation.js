@@ -11,7 +11,6 @@ const tabList = {
   Home: {
     screen: RootStack,
     icon: 'home',
-    headerRight: null,
   },
   Search: {
     screen: SearchScreen,
@@ -24,7 +23,7 @@ const tabList = {
 };
 
 const TabNavigation = () => {
-  //here i map for each tab in the const tab an actual Tab.Screen from REact navigation
+  //here i map for each tab in the const tab an actual Tab.Screen from React navigation
   return (
     <>
       <Tab.Navigator tabBar={(props) => <BottomTabs {...props} />}>

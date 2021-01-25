@@ -17,14 +17,14 @@ export const TopInfoContainer = styled.View`
 export const DateText = styled.Text`
   font-size: 20px;
   font-weight: 500;
-  color: white;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const ConditionsText = styled.Text`
   padding-top: 5%;
   font-size: 20px;
   font-weight: 300;
-  color: white;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const IconAndTemp = styled.View`
@@ -62,7 +62,7 @@ export const BigTemperatureText = styled.Text`
   font-size: 110px;
   text-align: center;
   font-weight: 900;
-  color: white;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const DayCardContainer = styled.View`
@@ -71,6 +71,6 @@ export const DayCardContainer = styled.View`
 `;
 
 export const ScrollContainer = styled.ScrollView.attrs((props) => ({
-  showsVerticallScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
   showsHorizontalScrollIndicator: false,
 }))``;

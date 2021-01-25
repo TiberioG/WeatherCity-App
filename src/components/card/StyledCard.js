@@ -47,28 +47,28 @@ export const Right = styled.View`
 `;
 
 export const TemperatureText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   margin: auto;
   font-weight: bold;
   font-size: 50px;
 `;
 
 export const CityText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   padding-top: 5%;
   font-weight: bold;
   font-size: 25px;
 `;
 
 export const DateText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   font-weight: 500;
   font-size: 15px;
   max-width: 90%;
 `;
 
 export const TimeText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   padding-top: 1%;
   font-weight: 300;
   font-size: 12px;

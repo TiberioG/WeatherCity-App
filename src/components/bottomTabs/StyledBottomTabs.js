@@ -35,7 +35,7 @@ export const StyledTabTouchable = styled.TouchableOpacity`
 `;
 
 export const Indicator = styled.View`
-  background-color: #061860;
+  background-color: ${(props) => props.theme.accentColor};
   position: absolute;
   bottom: 0;
   left: ${(props) => props.width / 2}; /*this is to center */
@@ -46,7 +46,7 @@ export const Indicator = styled.View`
 
 export const SelectedIcon = styled(Icon).attrs((props) => ({
   size: 30,
-  color: '#061860',
+  color: props.theme.accentColor,
 }))`
   padding-left: 3%;
   padding-right: 3%;

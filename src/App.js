@@ -13,20 +13,28 @@ import {IntlProvider} from 'react-intl';
 import store from './redux/store';
 import {Provider} from 'react-redux';
 
+//theme
+//importing themes
+import themesObj from './common/themes';
+
+
 //main navigator
 import TabNavigation from './navigation/TabNavigation';
+import {ThemeProvider} from 'styled-components';
 
 //todo add react-native-localize to select messages and locale config
 const App = () => {
   return (
     <Provider store={store}>
-      <IntlProvider locale={'en'} messages={messages_en}>
-        <SafeAreaProvider>
-          <NavigationContainer>
-            <TabNavigation />
-          </NavigationContainer>
-        </SafeAreaProvider>
-      </IntlProvider>
+      <ThemeProvider theme={themesObj.light}>
+        <IntlProvider locale={'en'} messages={messages_en}>
+          <SafeAreaProvider>
+            <NavigationContainer>
+              <TabNavigation />
+            </NavigationContainer>
+          </SafeAreaProvider>
+        </IntlProvider>
+      </ThemeProvider>
     </Provider>
   );
 };

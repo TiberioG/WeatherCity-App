@@ -19,7 +19,7 @@ export const CardContainer = styled.View`
 `;
 
 export const DayText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   padding-top: 15%;
 
   font-weight: bold;
@@ -28,7 +28,7 @@ export const DayText = styled.Text`
 `;
 
 export const TempText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   text-align: center;
   font-weight: bold;
   font-size: 40px;

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-
 import {ScrollView} from 'react-native';
 import {
   AddCityContainer,
@@ -13,10 +12,8 @@ import {
 } from './StyledHomeScreen';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-
 import {FormattedMessage} from 'react-intl';
 import Card from '../../components/card/Card';
-
 import {getDayPart} from '../../common/utility';
 
 const REFRESH_RATE = 10; // in minutes
@@ -25,6 +22,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
+  //selectors
   const favCities = useSelector((state) => state.favCities);
   const userName = useSelector((state) => state.settings.name); //todo refactor using slice with userinfo
   const currentWeather = useSelector((state) => state.currentWeather);

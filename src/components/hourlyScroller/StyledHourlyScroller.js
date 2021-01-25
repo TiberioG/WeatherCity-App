@@ -6,7 +6,7 @@ export const StyledFlatList = styled.FlatList`
 `;
 
 export const TimeText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   text-align: center;
   font-weight: 300;
   font-size: 13px;
@@ -14,7 +14,7 @@ export const TimeText = styled.Text`
 `;
 
 export const TempText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   text-align: center;
   font-weight: 300;
   font-size: 20px;
@@ -22,7 +22,7 @@ export const TempText = styled.Text`
 `;
 
 export const NowTimeText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   text-align: center;
   font-weight: 800;
   font-size: 20px;
@@ -30,7 +30,7 @@ export const NowTimeText = styled.Text`
 `;
 
 export const NowTempText = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   text-align: center;
   top: -5px;
   font-weight: 800;

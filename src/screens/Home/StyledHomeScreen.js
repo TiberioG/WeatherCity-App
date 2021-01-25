@@ -35,7 +35,7 @@ export const WelcomeMessage = styled.Text`
   font-size: 30px;
   text-align: center;
   font-weight: 600;
-  color: #061860;
+  color: ${(props) => props.theme.accentColor};
 `;
 
 export const AddCityContainer = styled.TouchableOpacity`
@@ -51,12 +51,12 @@ export const AddCityText = styled.Text`
   font-size: 20px;
   text-align: center;
   font-weight: 600;
-  color: #061860;
+  color: ${(props) => props.theme.accentColor};
 `;
 
 export const AddIcon = styled(Icon).attrs((props) => ({
   size: 28,
-  color: '#061860',
+  color: '${(props) => props.theme.accentColor}',
   name: 'pluscircleo',
 }))`
   padding-left: 3%;
