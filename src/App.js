@@ -25,7 +25,7 @@ const App = () => {
       <IntlProvider locale={'en'} messages={messages_en} >
       <SafeAreaProvider>
         <NavigationContainer>
-          <RootStackNav/>
+          <TabNavigation/>
         </NavigationContainer>
       </SafeAreaProvider>
       </IntlProvider>

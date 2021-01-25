@@ -30,17 +30,41 @@ export const ConditionsText = styled.Text`
 export const IconAndTemp = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+  height: 30%;
+`;
+
+export const IconContainer = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+`;
+
+
+
+export const WeatherIcon = styled.Image`
+
+  height: 200px;
+  width: 200px;
+`;
+
+export const BigTempContainer = styled.View`
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 export const BigTemperatureText = styled.Text`
-  flex: 1;
+  
   font-size: 110px;
   text-align: center;
   font-weight: 900;
   color: white;
-  padding-top: 8%;
-  padding-bottom: 50%;
 `;
 
 export const DayCardContainer = styled.View`
@@ -49,7 +73,6 @@ export const DayCardContainer = styled.View`
 `;
 
 export const ScrollContainer = styled.ScrollView.attrs((props) => ({
-  showsVerticallScrollIndicator : false,
-  showsHorizontalScrollIndicator : false
-}))`
-`;
+  showsVerticallScrollIndicator: false,
+  showsHorizontalScrollIndicator: false,
+}))``;

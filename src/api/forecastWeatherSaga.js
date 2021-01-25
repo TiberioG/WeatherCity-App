@@ -17,7 +17,15 @@ const initialState = {
 export function forecastWeatherReducer(state = initialState, action) {
   switch (action.type) {
     case FORECAST_WHT_REQ:
-      return {...state, fetching: true, error: null};
+      return {
+        ...state,
+        [action.payload]: {
+          //setting fetching for this specific id
+          fetching: true,
+        },
+        fetching: true,
+        error: null,
+      };
     case FORECAST_WHT_OK:
       return {
         ...state,
@@ -74,7 +82,7 @@ function* workerSaga(action) {
     const data = response?.data;
 
     // here in action.payload we have the id of the city and in data the response
-    yield put({type: 'FORECAST_WHT_OK',  data, id: action.payload});
+    yield put({type: 'FORECAST_WHT_OK', data, id: action.payload});
     //yield call(updateFilters, eventsData);
   } catch (err) {
     //we need to serialize the Error obj

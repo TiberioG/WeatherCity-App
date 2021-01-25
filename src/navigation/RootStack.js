@@ -27,7 +27,6 @@ const RootStackNav = () => {
           options={{headerShown: false}}
         />
       </RootStack.Navigator>
-      <BottomTabs/>
     </>
   );
 };

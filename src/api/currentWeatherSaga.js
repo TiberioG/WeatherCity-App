@@ -9,6 +9,7 @@ const CUR_WHT_FETCH_ERR = 'CUR_WHT_FETCH_ERR'; // this if we catch an error from
 
 // reducer with initial state, loginData aka token
 const initialState = {
+  initial : true,
   fetching: false,
   error: null,
 };
@@ -17,15 +18,23 @@ const initialState = {
 export function currentWeatherReducer(state = initialState, action) {
   switch (action.type) {
     case CUR_WHT_REQ:
-      return {...state, fetching: true, error: null};
+      return {
+        ...state,
+        [action.payload]: {  //setting fetching for this specific id
+          fetching: true,
+        },
+        error: null,
+        fetching: true,
+      };
     case CUR_WHT_OK:
       return {
         ...state,
-        [action.payload.id]: action.payload,
-        fetching: false
+        initial : false,
+        [action.payload.id]: action.payload, // action.paylod.id is still the city id
+        fetching: false,
       };
     case CUR_WHT_FETCH_ERR:
-      return {...state, fetching: false, error: action.error};
+      return {...state, error: action.error, fetching: false,};
     default:
       return state;
   }
@@ -43,7 +52,14 @@ export function* watcherCurrentWeatherSaga() {
 function getCurrentWeather(id, settings) {
   let config = {
     method: 'get',
-    url: API_CONFIG.url + 'weather?id=' + id + '&appid=' + API_CONFIG.key + '&units=' + settings.units,
+    url:
+      API_CONFIG.url +
+      'weather?id=' +
+      id +
+      '&appid=' +
+      API_CONFIG.key +
+      '&units=' +
+      settings.units,
     headers: {},
   };
   return axios(config);

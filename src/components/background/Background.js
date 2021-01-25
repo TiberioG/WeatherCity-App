@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Svg, {Rect, Defs, LinearGradient, Stop} from 'react-native-svg';
-import dayGradients from '../../assets/gradients.json';
+import dayGradients from '../../assets/gradientsDay.json';
 
 const BackgroundCustom = (props) => {
   let gradientColor;
@@ -14,8 +14,17 @@ const BackgroundCustom = (props) => {
         right: '#79b1f5',
       });
 
+  if (props.night) {
+    gradientColor = {
+      left: '#040614',
+      right: '#1f3c7a',
+    };
+  }
   return (
-    <Svg height={'100%'} width={'100%'} style={{position: 'absolute', zIndex : 0}}>
+    <Svg
+      height={'100%'}
+      width={'100%'}
+      style={{position: 'absolute', zIndex: 0}}>
       <Defs>
         <LinearGradient id="grad" x1="1" y1="1" x2="0" y2="0">
           <Stop offset="0" stopColor={gradientColor.right} stopOpacity="1" />

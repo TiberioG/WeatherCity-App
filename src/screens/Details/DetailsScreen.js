@@ -1,12 +1,6 @@
 import React, {useEffect} from 'react';
 
-import {
-  Text,
-  Button,
-  View,
-  ScrollView,
-  useWindowDimensions,
-} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {
   ConditionsText,
@@ -17,7 +11,9 @@ import {
   BigTemperatureText,
   ScrollContainer,
   DayCardContainer,
-} from './StyledDetailsScreen';
+  WeatherIcon,
+  BigTempContainer, IconContainer,
+} from "./StyledDetailsScreen";
 import {useDispatch, useSelector} from 'react-redux';
 import CustomHeader from '../../components/header/CustomHeader';
 
@@ -25,37 +21,39 @@ import {FormattedDate} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
 import DailyCard from '../../components/dailyCard/DailyCard';
 import Background from '../../components/background/Background';
-import BackgroundCustom from "../../components/background/Background";
+import BackgroundCustom from '../../components/background/Background';
+import {ContainerLoading} from '../Home/StyledHomeScreen';
 
 const DetailsScreen = (props) => {
   const route = useRoute(); //using route params to pass to this page the city ID
-  const cityId = route.params;
+  const cityId = route.params.id;
+  //redux selectors
   const currentWeather = useSelector((state) => state.currentWeather);
-  const pageData = currentWeather[cityId]; //todo check for null
-  const localDate = Date.now() + 1000 * pageData?.timezone; // beacuse API gives shift from UTC in seconds
+  const forecastWeather = useSelector((state) => state.forecastWeather);
   const settings = useSelector((state) => state.settings);
 
-  let forecastWeather = useSelector((state) => state.forecastWeather);
-  let array = forecastWeather[route.params]?.daily;
+  const pageData = currentWeather[cityId]; //check for null
+  const dailyData = forecastWeather[cityId]?.daily;
 
-  let renderedCards = array
-    ? Object.entries(array).map((day, index) => {
+  let renderedCards = dailyData
+    ? Object.entries(dailyData).map((day, index) => {
         return (
-          <DayCardContainer>
+          <DayCardContainer key={index}>
             <DailyCard cityId={cityId} index={index} />
           </DayCardContainer>
         );
       })
     : null;
 
-  return forecastWeather.fetching ? (
-    <View>
-      <Text>Loading</Text>
-    </View>
+  return pageData.fetching ? (
+    <ContainerLoading>
+      <BackgroundCustom id={route.params.backgroundId} />
+      <ActivityIndicator />
+    </ContainerLoading>
   ) : (
     <>
       <Container>
-        <BackgroundCustom id={pageData.weather[0].id} />
+        <BackgroundCustom id={route.params.backgroundId} night={RegExp("n").test(pageData?.weather[0].icon)} />
         <CustomHeader
           title={pageData.name}
           onPressLeft={() => props.navigation.goBack()}
@@ -63,19 +61,35 @@ const DetailsScreen = (props) => {
         <TopInfoContainer>
           <DateText>
             <FormattedDate
-              value={localDate}
+              value={Date.now() + 1000 * pageData?.timezone}
               month="long"
               day="numeric"
               weekday="long"
             />
           </DateText>
-          <ConditionsText>{pageData.weather[0].description}</ConditionsText>
+          <ConditionsText>{pageData?.weather[0].description}</ConditionsText>
         </TopInfoContainer>
+
         <IconAndTemp>
-          <BigTemperatureText>i</BigTemperatureText>
-          <BigTemperatureText>
-            {Math.round(pageData.main.temp) + getTempSymbol(settings.units)}
-          </BigTemperatureText>
+          {pageData?.weather[0].icon ? (
+            <IconContainer>
+              <WeatherIcon
+                source={{
+                  uri:
+                    'http://openweathermap.org/img/wn/' +
+                    pageData?.weather[0].icon +
+                    '@2x.png',
+                }}
+              />
+            </IconContainer>
+          ) : (
+            <ActivityIndicator />
+          )}
+          <BigTempContainer>
+            <BigTemperatureText>
+              {Math.round(pageData.main.temp) + getTempSymbol(settings.units)}
+            </BigTemperatureText>
+          </BigTempContainer>
         </IconAndTemp>
         <ScrollContainer horizontal={true}>{renderedCards}</ScrollContainer>
       </Container>

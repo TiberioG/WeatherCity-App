@@ -1,3 +1,7 @@
 {
-  "home.welcome" : "Good Morning! {br} {name} "
+  "home.morning" : "Good morning! {br} {name} ",
+  "home.afternoon" : "Good afternoon! {br} {name} ",
+  "home.evening": "Good evening! {br} {name} ",
+  "home.addCity" : "Add city"
+
 }

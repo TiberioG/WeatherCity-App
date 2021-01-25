@@ -6,39 +6,54 @@ import {
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
-export const StyledIcon = styled(Icon).attrs((props) => ({
-  size: 30,
-  color: 'blue',
-}))`
-  padding-left: 3%;
-  padding-right: 3%;
-`;
 
 export const BottomTabContainer = styled.View`
-  background-color: red;
-
-
+  position: absolute;
+  bottom: 2.3%; /* todo refactor using safeareaview*/
   display: flex;
   flex-direction: row;
-  height: 50px;
+  justify-content: center;
+  width: 100%;
+  z-index: 200;
+`;
+
+export const InnerContainer = styled.View`
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  height: 75px;
   width: 90%;
   z-index: 200;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 1px 1px 7px  black;
+  shadow-opacity: 0.3;
+  shadow-radius: 3.84px;
 `;
 
 export const StyledTabTouchable = styled.TouchableOpacity`
   flex: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-export const Round = styled.View`
-  height: ${wp('15%')}; /*dont'use height, must be same as width} */
-  width: ${wp('15%')};
-  border-radius: ${wp('50%')};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+export const SelectedIcon = styled(Icon).attrs((props) => ({
+  size: 30,
+  color: '#061860',
+}))`
+  padding-left: 3%;
+  padding-right: 3%;
 `;
+
+export const StyledIcon = styled(Icon).attrs((props) => ({
+  size: 30,
+  color: 'gray',
+}))`
+  padding-left: 3%;
+  padding-right: 3%;
+`;
+
+

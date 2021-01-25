@@ -4,7 +4,7 @@ import {createSlice} from '@reduxjs/toolkit';
 //so here I save the ids of the fav cities to display in home
 export const favCitiesSlice = createSlice({
   name: 'favCitiesSlice',
-  initialState: [2643743, 3165524, 3169070], //London, Turin, Rome
+  initialState: [2643743, 3165524, 3169070, 3165527], //London, Turin, Rome
   reducers: {
     addId(state, action) {
       let copy = [...state];

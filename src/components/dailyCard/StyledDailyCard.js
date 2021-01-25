@@ -33,5 +33,23 @@ export const TempText = styled.Text`
   font-weight: bold;
   font-size: 40px;
   padding-top: 5%;
-  
+`;
+
+export const IconContainer = styled.View`
+flex: 1;
+width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+`;
+
+
+
+export const WeatherIcon = styled.Image`
+
+  height: 100%;
+  width: 100%;
 `;

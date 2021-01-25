@@ -11,13 +11,24 @@ export const TouchableContainer = styled.TouchableOpacity`
   border-radius: 25px;
   overflow: hidden; /*important to have border radius in children */
   background: transparent;
+  z-index: 100;
+  box-shadow: 3px 3px 17px  black;
+  shadow-opacity: 0.3;
+  shadow-radius: 3.84px;
+`;
+
+
+export const Inner = styled.View`
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-left:  4%;
 `;
 
+
+
 export const Left = styled.View`
-  padding-left: 5%;
   flex: 1;
   height: 100%;
   display: flex;
@@ -28,6 +39,9 @@ export const Left = styled.View`
 
 export const Center = styled.View`
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Right = styled.View`
@@ -55,6 +69,7 @@ export const DateText = styled.Text`
   color : white;
   font-weight: 500;
   font-size: 15px;
+  max-width: 90%;
 `;
 
 export const TimeText = styled.Text`
@@ -62,4 +77,10 @@ export const TimeText = styled.Text`
   padding-top: 1%;
   font-weight: 300;
   font-size: 12px;
+`;
+
+
+export const WeatherIcon = styled.Image`
+  height: 100%;
+  width: 100%;
 `;
