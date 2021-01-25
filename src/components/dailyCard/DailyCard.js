@@ -7,7 +7,7 @@ import {
   TempText,
   WeatherIcon,
 } from './StyledDailyCard';
-import {TemperatureText} from '../card/StyledCard';
+
 import {useSelector} from 'react-redux';
 import {FormattedDate} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
@@ -17,12 +17,12 @@ const DailyCard = (props) => {
 
   const settings = useSelector((state) => state.settings);
   let dailyData = forecast[props.cityId]?.daily[props.index];
-  let date = new Date(dailyData?.dt * 1000);
+
   //console.log(currentWeather)
   return (
     <CardContainer>
       <DayText>
-        <FormattedDate value={date} weekday="long" />
+        <FormattedDate value={new Date(dailyData?.dt * 1000)} weekday="long" />
       </DayText>
       <TempText>
         {' '}

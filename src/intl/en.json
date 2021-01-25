@@ -1,4 +1,5 @@
 {
+  "now" : "Now",
   "home.morning" : "Good morning! {br} {name} ",
   "home.afternoon" : "Good afternoon! {br} {name} ",
   "home.evening": "Good evening! {br} {name} ",

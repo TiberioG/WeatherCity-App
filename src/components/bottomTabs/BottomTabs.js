@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, useWindowDimensions, Animated} from 'react-native';
 
 import {
   BottomTabContainer,
@@ -8,6 +8,7 @@ import {
   StyledIcon,
   InnerContainer,
   SelectedIcon,
+  Indicator,
 } from './StyledBottomTabs';
 
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
@@ -17,6 +18,10 @@ const BottomTabs = (props) => {
   const {state, descriptors, navigation} = props;
   const focusedOptions = descriptors[state.routes[state.index].key].options; //this contains the info of current tab focused
 
+  const windowWidth = useWindowDimensions().width;
+  const tabWidth = (windowWidth * 0.9) / state.routes.length; //remember to check styled
+  const [translateValue] = useState(new Animated.Value(0));
+  const AnimatedIndicator = Animated.createAnimatedComponent(Indicator);
   //console.log(focusedOptions);
   if (focusedOptions.tabBarVisible === false) {
     return null;
@@ -38,8 +43,15 @@ const BottomTabs = (props) => {
       if (!isFocused && !event.defaultPrevented) {
         navigation.navigate(route.name); // remember route.name is not localized and is defined in the list of tabs as key
       }
+
+      Animated.spring(translateValue, {
+        toValue: index * tabWidth,
+        velocity: 5,
+        useNativeDriver: true,
+      }).start();
     };
 
+    console.log(index);
     const onLongPress = () => {
       navigation.emit({
         type: 'tabLongPress',
@@ -57,7 +69,9 @@ const BottomTabs = (props) => {
         onPress={onPress}
         onLongPress={onLongPress}>
         {isFocused ? (
-          <SelectedIcon name={options.icon} />
+          <>
+            <SelectedIcon name={options.icon} />
+          </>
         ) : (
           <StyledIcon name={options.icon} />
         )}
@@ -68,6 +82,14 @@ const BottomTabs = (props) => {
   return (
     <BottomTabContainer>
       <InnerContainer>
+        <AnimatedIndicator
+          style={[
+            {
+              transform: [{translateX: translateValue}],
+            },
+          ]}
+          width={tabWidth * 0.5}
+        />
         {state.routes.map((route, index) => _renderButton(route, index))}
       </InnerContainer>
     </BottomTabContainer>

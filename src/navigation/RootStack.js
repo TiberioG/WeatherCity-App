@@ -9,6 +9,7 @@ import BottomTabs from "../components/bottomTabs/BottomTabs";
 
 const RootStack = createStackNavigator();
 const RootStackNav = () => {
+
   return (
     <>
       <StatusBar

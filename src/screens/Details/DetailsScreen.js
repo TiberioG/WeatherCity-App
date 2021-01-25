@@ -12,7 +12,7 @@ import {
   ScrollContainer,
   DayCardContainer,
   WeatherIcon,
-  BigTempContainer, IconContainer,
+  BigTempContainer, IconContainer, HourlyScrollerContainer,
 } from "./StyledDetailsScreen";
 import {useDispatch, useSelector} from 'react-redux';
 import CustomHeader from '../../components/header/CustomHeader';
@@ -23,6 +23,7 @@ import DailyCard from '../../components/dailyCard/DailyCard';
 import Background from '../../components/background/Background';
 import BackgroundCustom from '../../components/background/Background';
 import {ContainerLoading} from '../Home/StyledHomeScreen';
+import HourlyScroller from "../../components/hourlyScroller/HourlyScroller";
 
 const DetailsScreen = (props) => {
   const route = useRoute(); //using route params to pass to this page the city ID
@@ -91,6 +92,10 @@ const DetailsScreen = (props) => {
             </BigTemperatureText>
           </BigTempContainer>
         </IconAndTemp>
+        <HourlyScrollerContainer>
+          <HourlyScroller cityId={cityId}/>
+        </HourlyScrollerContainer>
+
         <ScrollContainer horizontal={true}>{renderedCards}</ScrollContainer>
       </Container>
     </>

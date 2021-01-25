@@ -31,7 +31,7 @@ export const IconAndTemp = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  height: 30%;
+
 `;
 
 export const IconContainer = styled.View`
@@ -39,28 +39,27 @@ export const IconContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  
 `;
 
-
-
 export const WeatherIcon = styled.Image`
-
   height: 200px;
   width: 200px;
 `;
 
 export const BigTempContainer = styled.View`
   flex: 1;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
+export const HourlyScrollerContainer = styled.View`
+  flex: 1;
+  padding-bottom: 10%;
+`;
+
 export const BigTemperatureText = styled.Text`
-  
   font-size: 110px;
   text-align: center;
   font-weight: 900;
