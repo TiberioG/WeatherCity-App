@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
   Center,
   TouchableContainer,
@@ -12,7 +12,7 @@ import {
   WeatherIcon,
 } from './StyledCard';
 
-import {Image, ActivityIndicator} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {FormattedDate, FormattedTime} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
@@ -61,7 +61,7 @@ const Card = (props) => {
       <BackgroundCustom
         style={{borderRadius: 25}}
         id={cardData?.weather[0].id}
-        night={RegExp("n").test(cardData?.weather[0].icon)}
+        night={RegExp('n').test(cardData?.weather[0].icon)}
       />
 
       <Inner>

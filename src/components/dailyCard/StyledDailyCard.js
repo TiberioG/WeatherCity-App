@@ -13,7 +13,7 @@ export const CardContainer = styled.View`
   flex-direction: column;
   justify-content: flex-start;
   /* offset-x | offset-y | blur-radius | color */
-  box-shadow: 7px 1px 13px  black;
+  box-shadow: 7px 1px 13px black;
   shadow-opacity: 0.3;
   shadow-radius: 3.84px;
 `;
@@ -21,7 +21,7 @@ export const CardContainer = styled.View`
 export const DayText = styled.Text`
   color: white;
   padding-top: 15%;
- 
+
   font-weight: bold;
   font-size: 22px;
   text-align: center;
@@ -36,20 +36,15 @@ export const TempText = styled.Text`
 `;
 
 export const IconContainer = styled.View`
-flex: 1;
-width: 100%;
+  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
-
 `;
 
-
-
 export const WeatherIcon = styled.Image`
-
   height: 100%;
   width: 100%;
 `;

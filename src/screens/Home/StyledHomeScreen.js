@@ -8,14 +8,12 @@ export const Container = styled.View`
   flex-direction: column;
 `;
 
-
 export const ContainerLoading = styled.View`
   align-items: center;
   justify-content: center;
   flex: 1;
   flex-direction: column;
 `;
-
 
 export const TopContainer = styled.View`
   padding-top: 12%;

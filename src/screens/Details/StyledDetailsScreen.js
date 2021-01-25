@@ -31,7 +31,6 @@ export const IconAndTemp = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-
 `;
 
 export const IconContainer = styled.View`

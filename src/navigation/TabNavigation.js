@@ -1,13 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import CurrentScreen from '../screens/Current/CurrentScreen';
 import RootStack from './RootStack';
 import BottomTabs from '../components/bottomTabs/BottomTabs';
 import SearchScreen from '../screens/Search/SearchScreen';
-import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
-import HomeScreen from '../screens/Home/HomeScreen';
-import BackgroundCustom from '../components/background/Background';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +24,6 @@ const tabList = {
 };
 
 const TabNavigation = () => {
-
   //here i map for each tab in the const tab an actual Tab.Screen from REact navigation
   return (
     <>

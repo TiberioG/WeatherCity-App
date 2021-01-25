@@ -1,8 +1,4 @@
 import styled from 'styled-components';
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 

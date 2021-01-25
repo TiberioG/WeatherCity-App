@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import {ActivityIndicator} from 'react-native';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import {
   ConditionsText,
   Container,
@@ -12,18 +12,19 @@ import {
   ScrollContainer,
   DayCardContainer,
   WeatherIcon,
-  BigTempContainer, IconContainer, HourlyScrollerContainer,
-} from "./StyledDetailsScreen";
-import {useDispatch, useSelector} from 'react-redux';
+  BigTempContainer,
+  IconContainer,
+  HourlyScrollerContainer,
+} from './StyledDetailsScreen';
+import {useSelector} from 'react-redux';
 import CustomHeader from '../../components/header/CustomHeader';
 
 import {FormattedDate} from 'react-intl';
 import {getTempSymbol} from '../../common/utility';
 import DailyCard from '../../components/dailyCard/DailyCard';
-import Background from '../../components/background/Background';
 import BackgroundCustom from '../../components/background/Background';
 import {ContainerLoading} from '../Home/StyledHomeScreen';
-import HourlyScroller from "../../components/hourlyScroller/HourlyScroller";
+import HourlyScroller from '../../components/hourlyScroller/HourlyScroller';
 
 const DetailsScreen = (props) => {
   const route = useRoute(); //using route params to pass to this page the city ID
@@ -54,7 +55,10 @@ const DetailsScreen = (props) => {
   ) : (
     <>
       <Container>
-        <BackgroundCustom id={route.params.backgroundId} night={RegExp("n").test(pageData?.weather[0].icon)} />
+        <BackgroundCustom
+          id={route.params.backgroundId}
+          night={RegExp('n').test(pageData?.weather[0].icon)}
+        />
         <CustomHeader
           title={pageData.name}
           onPressLeft={() => props.navigation.goBack()}
@@ -93,7 +97,7 @@ const DetailsScreen = (props) => {
           </BigTempContainer>
         </IconAndTemp>
         <HourlyScrollerContainer>
-          <HourlyScroller cityId={cityId}/>
+          <HourlyScroller cityId={cityId} />
         </HourlyScrollerContainer>
 
         <ScrollContainer horizontal={true}>{renderedCards}</ScrollContainer>

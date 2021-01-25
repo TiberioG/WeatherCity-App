@@ -20,5 +20,3 @@ export const getDayPart = () => {
     return 'evening';
   }
 };
-
-

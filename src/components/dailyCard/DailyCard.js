@@ -1,5 +1,4 @@
 import React from 'react';
-import {View} from 'react-native';
 import {
   CardContainer,
   DayText,
@@ -7,6 +6,8 @@ import {
   TempText,
   WeatherIcon,
 } from './StyledDailyCard';
+
+import {ActivityIndicator} from 'react-native';
 
 import {useSelector} from 'react-redux';
 import {FormattedDate} from 'react-intl';
@@ -18,7 +19,6 @@ const DailyCard = (props) => {
   const settings = useSelector((state) => state.settings);
   let dailyData = forecast[props.cityId]?.daily[props.index];
 
-  //console.log(currentWeather)
   return (
     <CardContainer>
       <DayText>

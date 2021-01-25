@@ -1,8 +1,8 @@
 import React from 'react';
-import {FlatList, Button, Text, View} from 'react-native';
+import {View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {FormattedTime, FormattedMessage} from 'react-intl';
-import Svg, {Circle, Line, LinearGradient, Stop, Defs} from 'react-native-svg';
+import Svg, {Circle, Line} from 'react-native-svg';
 import {
   TimeText,
   TempText,

@@ -5,11 +5,9 @@ import {StatusBar} from 'react-native';
 //Screens
 import HomeScreen from '../screens/Home/HomeScreen';
 import DetailsScreen from '../screens/Details/DetailsScreen';
-import BottomTabs from "../components/bottomTabs/BottomTabs";
 
 const RootStack = createStackNavigator();
 const RootStackNav = () => {
-
   return (
     <>
       <StatusBar

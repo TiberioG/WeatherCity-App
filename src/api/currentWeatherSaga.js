@@ -7,9 +7,8 @@ const CUR_WHT_REQ = 'CUR_WHT_REQ';
 const CUR_WHT_OK = 'CUR_WHT_OK';
 const CUR_WHT_FETCH_ERR = 'CUR_WHT_FETCH_ERR'; // this if we catch an error from axios fetch
 
-// reducer with initial state, loginData aka token
 const initialState = {
-  initial : true,
+  initial: true,
   fetching: false,
   error: null,
 };
@@ -20,7 +19,9 @@ export function currentWeatherReducer(state = initialState, action) {
     case CUR_WHT_REQ:
       return {
         ...state,
-        [action.payload]: {  //setting fetching for this specific id
+        lastFetch: Date.now(),
+        [action.payload]: {
+          //setting fetching for this specific id
           fetching: true,
         },
         error: null,
@@ -29,12 +30,12 @@ export function currentWeatherReducer(state = initialState, action) {
     case CUR_WHT_OK:
       return {
         ...state,
-        initial : false,
+        initial: false,
         [action.payload.id]: action.payload, // action.paylod.id is still the city id
         fetching: false,
       };
     case CUR_WHT_FETCH_ERR:
-      return {...state, error: action.error, fetching: false,};
+      return {...state, error: action.error, fetching: false};
     default:
       return state;
   }
@@ -70,18 +71,14 @@ function getCurrentWeather(id, settings) {
 function* workerSaga(action) {
   try {
     const settings = yield select(settingsSelector);
-
-    //in call you have (fn, ...args)
     const response = yield call(getCurrentWeather, action.payload, settings);
     const payload = response?.data;
 
     // dispatch a success action to the store with the data from Axios
-
     yield put({type: 'CUR_WHT_OK', payload});
-    //yield call(updateFilters, eventsData);
   } catch (err) {
     //we need to serialize the Error obj
-    const error = err.response?.data; //todo refacror here with proxy
+    const error = err.response?.data; //todo check errors types
     // dispatch a failure action to the store with the error
     yield put({type: 'CUR_WHT_FETCH_ERR', error});
   }

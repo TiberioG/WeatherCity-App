@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {View, useWindowDimensions, Animated} from 'react-native';
+import {useWindowDimensions, Animated} from 'react-native';
 
 import {
   BottomTabContainer,
   StyledTabTouchable,
-  Round,
   StyledIcon,
   InnerContainer,
   SelectedIcon,

@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const StyledFlatList = styled.FlatList`
   padding-left: 50px;
-  padding-right:  50px;
+  padding-right: 50px;
 `;
-
-
 
 export const TimeText = styled.Text`
   color: white;
@@ -23,7 +21,6 @@ export const TempText = styled.Text`
   margin-left: -50px; /*fix to center with SVG below"*/
 `;
 
-
 export const NowTimeText = styled.Text`
   color: white;
   text-align: center;
@@ -35,7 +32,7 @@ export const NowTimeText = styled.Text`
 export const NowTempText = styled.Text`
   color: white;
   text-align: center;
-  top : -5px;
+  top: -5px;
   font-weight: 800;
   font-size: 25px;
   margin-left: -40px; /*fix to center with SVG below"*/

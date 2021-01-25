@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Svg, {Rect, Defs, LinearGradient, Stop} from 'react-native-svg';
 import dayGradients from '../../assets/gradientsDay.json';
 

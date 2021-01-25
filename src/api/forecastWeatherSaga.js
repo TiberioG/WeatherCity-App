@@ -7,9 +7,8 @@ const FORECAST_WHT_REQ = 'FORECAST_WHT_REQ';
 const FORECAST_WHT_OK = 'FORECAST_WHT_OK';
 const FORECAST_WHT_FETCH_ERR = 'FORECAST_WHT_FETCH_ERR'; // this if we catch an error from axios fetch
 
-// reducer with initial state, loginData aka token
 const initialState = {
-  fetching: false,
+  fetching: false, //todo add last fetch as in currentWeather
   error: null,
 };
 
@@ -83,7 +82,6 @@ function* workerSaga(action) {
 
     // here in action.payload we have the id of the city and in data the response
     yield put({type: 'FORECAST_WHT_OK', data, id: action.payload});
-    //yield call(updateFilters, eventsData);
   } catch (err) {
     //we need to serialize the Error obj
     const error = err.response?.data;

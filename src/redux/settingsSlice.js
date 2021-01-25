@@ -4,7 +4,7 @@ export const settingsSlice = createSlice({
   name: 'settingsSlice',
   initialState: {
     units: 'metric',
-    name: 'Mario',
+    name: 'Tiberio',
   },
   reducers: {
     setUnits(state, action) {
