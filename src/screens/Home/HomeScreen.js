@@ -48,7 +48,7 @@ const HomeScreen = () => {
         });
       }
     });
-  }, [navigation, currentWeather, favCities, dispatch]); 
+  }, [navigation, currentWeather, favCities, dispatch]);
 
   //effect to update time for the clock of every card
   useEffect(() => {
